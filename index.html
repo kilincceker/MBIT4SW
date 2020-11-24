@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Software Testing Bundle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      padding: 5px 25px;
+      font:400 16px/24px Roboto,sans-serif;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Model-based Ideal Testing of GUI Programs</h1>
+  <p>This web page provides an MBIT framework including tool supports for graphical user interface (GUI) testing
+    of a software. The framework combines the holistic and mutation testing to achieve ideal testing.
+    See Fig. 1 for general flow of MBIT for GUI programs. The MBIT comprises test preparation and and testing steps for which details are given below. 
+  </p>
+  <figure>
+  <p style="text-align:center;"><img src="Fig1_General_Flow.png" alt="Trulli" style="width:60%">
+  <figcaption>Fig.1 - The General Flow.</figcaption>
+</figure>
+  <span><a href="#1">1.Test preparation</a></span>
+  <ul>
+    <li><a href="#1.1">1.1.Model construction(Manual)</a></li>
+    <li><a href="#1.2">1.2.Mutant Generation(Manual)</a></li>
+    <li><a href="#1.3">1.3.Model Conversion(Automatic)</a></li>
+    <li><a href="#1.4">1.4.Test Generation(Automatic)</a></li>
+  </ul>
+  <span><a href="#2">2.Testing</a></span>
+  <ul>
+    <li><a href="#2.1">2.1.Test execution(Automatic)</a></li>
+    <li><a href="#2.2">2.2.Test selection(Automatic)</a></li>
+  </ul>
+
+  The rough details including tool supports will be explained as follows considering given steps.
+  
+  <h2 id="1">1.Test preparation</h2>
+  <p style="text-indent: 40px;">It is the first step of the framework, 
+which starts with construction of the model from GUI under test (GUT).
+    The GUI under test is modeled by means of a finite state machine(FSM) manually 
+using JFLAP or PQ-Analysis tool. The model constructed is called 
+original or fault-free FSM. Then, the mutants are generated from the original
+ FSM by utilizing mutation operators that 
+    are specific to the FSM. Then, the models including mutants are 
+converted to the regular expressions(REs) using
+    JFLAP tool or PQ-Analysis tool. At the final step of the test 
+preparation, the test sequences are generated from
+    the corresponding RE models automatically using PQ-TestGen and 
+PQ-RanTest tools.
+  </p>
+
+  <p id="1.1"><b>1.1</b> Model construction step requires expertise of 
+the designer or tester who knows basics of the GUT. However, it can be
+    directly constructed from the given specification of the GUT without
+ expertise and extensive human effort. In proposed
+    framework, it is constructed from the GUT manually with knowledge of
+ tester about the system. The JFLAP tool is preferred due to
+    its easy to use interface. The FSM model is drawn using the 
+interface of the JFLAP tool. Note that this step can be 
+    carried by using PQ-Analysis tool but there isn't any direct 
+interface exist to draw the FSM model. Therefore, the choice of 
+    PQ-Analysis tool requires a basic knowledge of the tool.
+  </p>
+  <h4>Tool Support:</h4>
+  <ul style="margin-top: -15px">
+  <p> We use JFLAP for modeling GUI under test.
+    <li>[1]JFLAP, available at <a target="_blank" href="http://www.jflap.org/">http://www.jflap.org/</a></li>
+    <li>[2]PQ-Analysis, avaliable at <a target="_blank" href="http://download.ivknet.de/">http://download.ivknet.de/</a></li>
+  </ul>
+  <h4>Case Studies (CSs):</h4>
+  <ul style="margin-top: -15px">
+  <li>Special Module</li>
+  <p> Please download JFLAP file of Special Module given below. Then, open this file with JFLAP program given at the tool support.See Figure 2 for the FSM model of Special Module.<p/>
+  <li><span>CS 1: ISELTA <a target="_blank" href="http://iselta.ivknet.de/">http://iselta.ivknet.de/</a>  "Special" Module</span></li>
+  <a href="/JFLAP/Special_FF.jflap" download>
+  <img src="/JFLAP/Special_FF.jflap" alt="Special Module Jflap File">
+  </a>
+  <figure>
+  <p style="text-align:center;"><img src="Special_FF.PNG" alt="Trulli" style="width:70%">
+  <figcaption>Fig.2 - The FSM Model of Special Module</figcaption>
+</figure>
+  <li>Additional Module</li>
+  <p> Please download JFLAP file of Additional Module given below.Then, open this file with JFLAP program given at the tool support.See Figure 3 for the FSM model of Additional Module.<p/>
+  <li><span>CS 2: ISELTA <a target="_blank" href="http://iselta.ivknet.de/">http://iselta.ivknet.de/</a>  "Additional" Module</span></li>
+  <a href="/JFLAP/Additional_FF.jflap" download>
+  <img src="/JFLAP/Additional_FF.jflap" alt="Additional Module Jflap File">
+  </a>
+  <figure>
+  <p style="text-align:center;"><img src="Additional_FF.PNG" alt="Trulli" style="width:70%">
+  <figcaption>Fig.3 - The FSM Model of Additional Module</figcaption>
+</figure>
+  </ul>
+  <p id="1.2"><b>1.2</b> Mutant generation step is carried manually by means of the JFLAP tool. It requires utilization of the mutation operators that 
+    are a delete, insert, or replace of a state or transition of the FSM. Note that the selection and application of proper
+    mutation operator, or combination of them, is based on the internal behavior of the system. Because we only focus on
+    semantic fault that has a mean and changes specific behavior of the system. The selected behavior for the mutation is 
+    needed to be realized at code level. Therefore, the rest of the faults are neglected from the proposed framework.
+  </p>
+  <h4>Tool Support:</h4>
+  <ul style="margin-top: -15px">
+    <li>[1]JFLAP, available at <a target="_blank" href="http://www.jflap.org/">http://www.jflap.org/</a></li>
+    <li>[2]PQ-Analysis, avaliable at <a target="_blank" href="http://download.ivknet.de/">http://download.ivknet.de/</a></li>
+  </ul>
+  <h4>Case Studies (CSs):</h4>
+  <li>Special Module</li>
+  <p> Please download JFLAP file for mutant versions of Special Module given below. Then, open this file with JFLAP program given at the tool support.See Figure 4 for the FSM model for mutant 1 of Special Module.<p/>
+  <a href="/JFLAP/Special_FF_m1.jflap" download>
+  <img src="/JFLAP/Special_FF_m1.jflap" alt="Special Module FSM mutant 1">
+  </a>
+  <figure>
+  <p style="text-align:center;"><img src="Special_m1.PNG" alt="Trulli" style="width:70%">
+  <figcaption>Fig.4 - The FSM Model for mutant 1 of Special Module</figcaption>
+</figure>
+<p> You may use other mutant versions of Special Module given below. <p/>
+  <a href="/JFLAP/Special_FF_m2.jflap" download>
+  <img src="/JFLAP/Special_FF_m2.jflap" alt="Special Module FSM mutant 2">
+  </a>
+  <a href="/JFLAP/Special_FF_m3.jflap" download>
+  <img src="/JFLAP/Special_FF_m3.jflap" alt="Special Module FSM mutant 3">
+  </a>
+  <li>Additional Module</li>
+  <p> Please download JFLAP file for mutant versions of Special Module given below. Then, open this file with JFLAP program given at the tool support.See Figure 5 for the FSM model for mutant 1 of Additional Module.<p/>
+  <a href="/JFLAP/Additional_FF_m1.jflap" download>
+  <img src="/JFLAP/Additional_FF_m1.jflap" alt="Additional Module FSM mutant 1">
+  </a>
+  <figure>
+  <p style="text-align:center;"><img src="Additional_m1.PNG" alt="Trulli" style="width:70%">
+  <figcaption>Fig.5 - The FSM Model for mutant 1 of Additional Module</figcaption>
+</figure>
+<p> You may use other mutant versions of Special Module given below. <p/>
+  <a href="/JFLAP/Additional_FF_m2.jflap" download>
+  <img src="/JFLAP/Additional_FF_m2.jflap" alt="Additional Module FSM mutant 2">
+  </a>
+  <a href="/JFLAP/Additional_FF_m3.jflap" download>
+  <img src="/JFLAP/Additional_FF_m3.jflap" alt="Additional Module FSM mutant 3">
+  </a>
+  
+
+  <p id="1.3"><b>1.3</b> Model conversion step is carried out manually using JFLAP tool for original and each mutant models. This step 
+    can be also done using PQ-Analysis tool, which results in longer RE models due usage of different conversion algorithm
+    than JFLAP tool.
+  </p>
+  <h4>Tool Support:</h4>
+  <ul style="margin-top: -15px">
+    <li>[1]JFLAP, available at <a target="_blank" href="http://www.jflap.org/">http://www.jflap.org/</a></li>
+    <li>[2]PQ-Analysis, avaliable at <a target="_blank" href="http://download.ivknet.de/">http://download.ivknet.de/</a></li>
+  </ul>
+  <h4>Case Studies (CSs):</h4>
+  <li>Special Module</li>
+    <p> You may convert given FSM model of Special Module or use already converted RE model given below.<p/>
+  <a href="/~kilincceker/MBIT4SW/Special_RE.txt" download>
+  <img src="/~kilincceker/MBIT4SW/Special_RE.txt" alt="Special Module RE File">
+  </a>
+  <li>Additional Module</li>
+      <p> You may convert given FSM model of Additional Module or use already converted RE model given below.<p/>
+  <a href="/~kilincceker/MBIT4SW/Additional_RE.txt" download>
+  <img src="/~kilincceker/MBIT4SW/Additional_RE.txt" alt="Additional Module RE File">
+  </a>
+
+  <p id="1.4"><b>1.4</b> Test generation step is done using PQ-TestGen and PQ-RanTest tool which takes inputs from the PQ-Analysis results.
+    Note than there is preliminary step between model conversion and test generation called analysis step that results in 
+    context table, which represents the RE after analysis. The resulted tables are used in test generation algorithms.
+  </p>
+  <h4>Tool Support:</h4>
+  <ul style="margin-top: -15px">
+    <li>[1]PQ-Analysis, avaliable at <a target="_blank" href="http://download.ivknet.de/">http://download.ivknet.de/</a></li>
+    <li>[2]PQ-TestGen, download link for jar file </li><a href="TestGen_v3.jar">Link</a>
+    <li>[3]PQ-RanTest, download link for jar file </li><a href="TestGen_v3.jar">Link</a>
+  </ul>
+   <h4>Case Studies (CSs):</h4>
+   <li>Special Module</li>
+   <p> You may convert given RE model to obtain PQ files using PQ-Analysis tool for Special Module or use already obtained PQ file given below for fault-free model and mutant models. Then you can generate test suites from the corresponding PQ files using PQ-TestGen tool given at the tool support. You can also use PQ-RanTest tool for test generation. <p/>
+   <a href="/~kilincceker/MBIT4SW/PQ/Special_FF.txt" download>
+  <img src="/~kilincceker/MBIT4SW/PQ/Special_FF.txt" alt="Special Module PQ File">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/PQ/Special_m1.txt" download>
+  <img src="/~kilincceker/MBIT4SW/PQ/Special_m1.txt" alt="Special Module PQ File for mutant 1">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/PQ/Special_m2.txt" download>
+  <img src="/~kilincceker/MBIT4SW/PQ/Special_m2.txt" alt="Special Module PQ File for mutant 2">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/PQ/Special_m3.txt" download>
+  <img src="/~kilincceker/MBIT4SW/PQ/Special_m3.txt" alt="Special Module PQ File for mutant 3">
+  </a>
+  <li>Special Module Test Suites</li>
+  <a href="/~kilincceker/MBIT4SW/TSs/Special_TS.txt" download>
+  <img src="/~kilincceker/MBIT4SW/TSs/Special_TS.txt" alt="Special Module Test Suite from PQ-TestGen">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/TSs/Special_TS_m1.txt" download>
+  <img src="/~kilincceker/MBIT4SW/TSs/Special_TS_m1.txt" alt="Special Module Test Suite from PQ-TestGen for mutant 1">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/TSs/Special_TS_m2.txt" download>
+  <img src="/~kilincceker/MBIT4SW/TSs/Special_TS_m2.txt" alt="Special Module Test Suite from PQ-TestGen for mutant 2">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/TSs/Special_TS_m3.txt" download>
+  <img src="/~kilincceker/MBIT4SW/TSs/Special_TS_m3.txt" alt="Special Module Test Suite from PQ-TestGen for mutant 3">
+  </a>
+   <li>Additional Module</li>
+      <p> You may convert given RE model to obtain PQ files using PQ-Analysis tool for Additional Module or use already obtained PQ file given below for fault-free model and mutant models. Then you can generate test suites from the corresponding PQ files using PQ-TestGen tool given at the tool support. You can also use PQ-RanTest tool for test generation. <p/>
+   <a href="/~kilincceker/MBIT4SW/PQ/Additional_FF.txt" download>
+  <img src="/~kilincceker/MBIT4SW/PQ/Additional_FF.txt" alt="Additional Module PQ File">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/PQ/Additional_m1.txt" download>
+  <img src="/~kilincceker/MBIT4SW/PQ/Additional_m1.txt" alt="Additional Module PQ File for mutant 1">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/PQ/Additional_m2.txt" download>
+  <img src="/~kilincceker/MBIT4SW/PQ/Additional_m2.txt" alt="Additional Module PQ File for mutant 2">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/PQ/Additional_m3.txt" download>
+  <img src="/~kilincceker/MBIT4SW/PQ/Additional_m3.txt" alt="Additional Module PQ File for mutant 3">
+  </a>
+  <li>Additional Module Test Suites</li>
+  <a href="/~kilincceker/MBIT4SW/TSs/Additional_TS.txt" download>
+  <img src="/~kilincceker/MBIT4SW/TSs/Additional_TS.txt" alt="Additional Module Test Suite from PQ-TestGen">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/TSs/Additional_TS_m1.txt" download>
+  <img src="/~kilincceker/MBIT4SW/TSs/Additional_TS_m1.txt" alt="Additional Module Test Suite from PQ-TestGen for mutant 1">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/TSs/Additional_TS_m2.txt" download>
+  <img src="/~kilincceker/MBIT4SW/TSs/Additional_TS_m2.txt" alt="Additional Module Test Suite from PQ-TestGen for mutant 2">
+  </a>
+  <a href="/~kilincceker/MBIT4SW/TSs/Additional_TS_m3.txt" download>
+  <img src="/~kilincceker/MBIT4SW/TSs/Additional_TS_m3.txt" alt="Additional Module Test Suite from PQ-TestGen for mutant 3">
+  </a>
+
+  <h2 id="2">2.Testing</h2>
+  <p style="text-indent: 40px;">In testing step, the test sequences generated from original and mutant models are automatically executed on original and
+    mutant GUT, which are depending on the positive and negative testing. In positive testing, the test sequences generated
+    from original model are executed on mutant GUTs that are obtained from original GUT using mutation operators at code
+    level. In negative testing, the test sequences generated from mutant models are executed on original GUT. These steps
+    define test execution. In test selection, the failed test sequences from positive and negative testing for each execution
+    are selected to achieve ideal test suite. To this end, the proposed framework satisfies requirements of the ideal
+    testing in the scope of the model of GUT.
+  </p>
+
+  <p id="2.1"><b>2.1</b> Test execution step is performed by Selenium tool for which we write a generic test script in Java. The test script
+		automatically reads the test sequences and execute them on the corresponding GUT.
+  </p>
+  <h4>Tool Support:</h4>
+  <ul style="margin-top: -15px">
+    <li>[1]Selenium, avaliable at <a target="_blank" href="https://www.seleniumhq.org/">https://www.seleniumhq.org/</a></li>
+    <li>[2]The generic test script, download link for Java file</li><a href="ZeroOriginalFsmTests.java">Link</a>
+  </ul>
+  <p>You can use Selenium test script given at the tool support to execute generated test suites on the Special and Additional Modules for test execution step.<p/>
+
+  <p id="2.2"><b>2.2</b> Test selection is also performed by means of Selenium tool in which the failed test sequences executed on corresponding
+		GUT are selected and written to file that is called ideal test suite for each models.
+  </p>
+  <h4>Tool Support:</h4>
+  <ul style="margin-top: -15px">
+    <li>[1]Selenium, avaliable at <a target="_blank" href="https://www.seleniumhq.org/">https://www.seleniumhq.org/</a></li>
+    <li>[2]The generic test script, download link for Java file</li><a href="ZeroOriginalFsmTests.java">Link</a>
+    <li>[3]The test selection script, download link for Java file </li><a href="ZeroOriginalFsmTests.java">Link</a>
+  </ul>
+    <p>You can use Selenium test script given at the tool support to select ideal test suites on the Special and Additional Modules for test selection step.<p/>
+   <h4>Results</h4
+   <p>Please see results for test execution for Special and Additional Module in Table 1-2 and Figure 6-7 respectively .<p/>
+   <figure>
+  <p style="text-align:center;"><img src="Results1_Special.PNG" alt="Trulli" style="width:70%">
+  <figcaption>Table.1 - Test results for Special Module</figcaption>
+</figure>
+<figure>
+  <p style="text-align:center;"><img src="Results1_Additional.PNG" alt="Trulli" style="width:70%">
+  <figcaption>Table.2 - Test results for Additional Module</figcaption>
+</figure>
+	<figure>
+  <p style="text-align:center;"><img src="Results_Special.PNG" alt="Trulli" style="width:70%">
+  <figcaption>Fig.6 - Test results for Special Module</figcaption>
+</figure>
+<figure>
+  <p style="text-align:center;"><img src="Results_Additional.PNG" alt="Trulli" style="width:70%">
+  <figcaption>Fig.7 - Test results for Additional Module</figcaption>
+</figure>
+  <p>Note: Please do not hesitate to contact Onur Kilincceker (onurkilincceker@gmail.com) for any problems and comments.</p>
+</body></html>
