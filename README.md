@@ -44,7 +44,7 @@ We use JFLAP for modeling GUI under test.
 Please download JFLAP file of Special Module given below. Then, open this file with JFLAP program given at the tool support.See Figure 2 for the FSM model of Special Module.
 
 *   <span>CS 1: ISELTA [http://iselta.ivknet.de/](http://iselta.ivknet.de/) "Special" Module</span>
-[![Special Module Jflap File](/JFLAP/Special_FF.jflap)](/JFLAP/Special_FF.jflap) 
+[![Special Module Jflap File](Special_FF.jflap)](Special_FF.jflap) 
 
 <figure>
 
@@ -59,7 +59,7 @@ Please download JFLAP file of Special Module given below. Then, open this file w
 Please download JFLAP file of Additional Module given below.Then, open this file with JFLAP program given at the tool support.See Figure 3 for the FSM model of Additional Module.
 
 *   <span>CS 2: ISELTA [http://iselta.ivknet.de/](http://iselta.ivknet.de/) "Additional" Module</span>
-[![Additional Module Jflap File](/JFLAP/Additional_FF.jflap)](/JFLAP/Additional_FF.jflap) 
+[![Additional Module Jflap File](Additional_FF.jflap)](Additional_FF.jflap) 
 
 <figure>
 
