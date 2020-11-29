@@ -82,7 +82,7 @@ Please download JFLAP file of Additional Module given below.Then, open this file
 
 Please download JFLAP file for mutant versions of Special Module given below. Then, open this file with JFLAP program given at the tool support.See Figure 4 for the FSM model for mutant 1 of Special Module.
 
-[![Special Module FSM mutant 1](/JFLAP/Special_FF_m1.jflap)](/JFLAP/Special_FF_m1.jflap) 
+[![Special Module FSM mutant 1](Special_FF_m1.jflap)](Special_FF_m1.jflap) 
 
 <figure>
 
@@ -94,13 +94,13 @@ Please download JFLAP file for mutant versions of Special Module given below. Th
 
 You may use other mutant versions of Special Module given below.
 
-[![Special Module FSM mutant 2](/JFLAP/Special_FF_m2.jflap) ](/JFLAP/Special_FF_m2.jflap) [![Special Module FSM mutant 3](/JFLAP/Special_FF_m3.jflap)](/JFLAP/Special_FF_m3.jflap) 
+[![Special Module FSM mutant 2](Special_FF_m2.jflap) ](Special_FF_m2.jflap) [![Special Module FSM mutant 3](Special_FF_m3.jflap)](Special_FF_m3.jflap) 
 
 *   Additional Module
 
 Please download JFLAP file for mutant versions of Special Module given below. Then, open this file with JFLAP program given at the tool support.See Figure 5 for the FSM model for mutant 1 of Additional Module.
 
-[![Additional Module FSM mutant 1](/JFLAP/Additional_FF_m1.jflap)](/JFLAP/Additional_FF_m1.jflap) 
+[![Additional Module FSM mutant 1](Additional_FF_m1.jflap)](Additional_FF_m1.jflap) 
 
 <figure>
 
@@ -112,7 +112,7 @@ Please download JFLAP file for mutant versions of Special Module given below. Th
 
 You may use other mutant versions of Special Module given below.
 
-[![Additional Module FSM mutant 2](/JFLAP/Additional_FF_m2.jflap) ](/JFLAP/Additional_FF_m2.jflap) [![Additional Module FSM mutant 3](/JFLAP/Additional_FF_m3.jflap)](/JFLAP/Additional_FF_m3.jflap) 
+[![Additional Module FSM mutant 2](Additional_FF_m2.jflap) ](Additional_FF_m2.jflap) [![Additional Module FSM mutant 3](Additional_FF_m3.jflap)](Additional_FF_m3.jflap) 
 
 **1.3** Model conversion step is carried out manually using JFLAP tool for original and each mutant models. This step can be also done using PQ-Analysis tool, which results in longer RE models due usage of different conversion algorithm than JFLAP tool.
 
@@ -127,13 +127,13 @@ You may use other mutant versions of Special Module given below.
 
 You may convert given FSM model of Special Module or use already converted RE model given below.
 
-[![Special Module RE File](/~kilincceker/MBIT4SW/Special_RE.txt)](/~kilincceker/MBIT4SW/Special_RE.txt) 
+[![Special Module RE File](Special_RE.txt)](Special_RE.txt) 
 
 *   Additional Module
 
 You may convert given FSM model of Additional Module or use already converted RE model given below.
 
-[![Additional Module RE File](/~kilincceker/MBIT4SW/Additional_RE.txt)](/~kilincceker/MBIT4SW/Additional_RE.txt) 
+[![Additional Module RE File](Additional_RE.txt)](Additional_RE.txt) 
 
 **1.4** Test generation step is done using PQ-TestGen and PQ-RanTest tool which takes inputs from the PQ-Analysis results. Note than there is preliminary step between model conversion and test generation called analysis step that results in context table, which represents the RE after analysis. The resulted tables are used in test generation algorithms.
 
@@ -152,15 +152,15 @@ You may convert given FSM model of Additional Module or use already converted RE
 
 You may convert given RE model to obtain PQ files using PQ-Analysis tool for Special Module or use already obtained PQ file given below for fault-free model and mutant models. Then you can generate test suites from the corresponding PQ files using PQ-TestGen tool given at the tool support. You can also use PQ-RanTest tool for test generation.
 
-[![Special Module PQ File](/~kilincceker/MBIT4SW/PQ/Special_FF.txt) ](/~kilincceker/MBIT4SW/PQ/Special_FF.txt) [ ![Special Module PQ File for mutant 1](/~kilincceker/MBIT4SW/PQ/Special_m1.txt) ](/~kilincceker/MBIT4SW/PQ/Special_m1.txt) [ ![Special Module PQ File for mutant 2](/~kilincceker/MBIT4SW/PQ/Special_m2.txt) ](/~kilincceker/MBIT4SW/PQ/Special_m2.txt) [![Special Module PQ File for mutant 3](/~kilincceker/MBIT4SW/PQ/Special_m3.txt)](/~kilincceker/MBIT4SW/PQ/Special_m3.txt) 
+[![Special Module PQ File](Special_FF.txt) ](Special_FF.txt) [ ![Special Module PQ File for mutant 1](Special_m1.txt) ](Special_m1.txt) [ ![Special Module PQ File for mutant 2](Special_m2.txt) ](Special_m2.txt) [![Special Module PQ File for mutant 3](Special_m3.txt)](Special_m3.txt) 
 
-*   Special Module Test Suites[![Special Module Test Suite from PQ-TestGen](/~kilincceker/MBIT4SW/TSs/Special_TS.txt) ](/~kilincceker/MBIT4SW/TSs/Special_TS.txt) [ ![Special Module Test Suite from PQ-TestGen for mutant 1](/~kilincceker/MBIT4SW/TSs/Special_TS_m1.txt) ](/~kilincceker/MBIT4SW/TSs/Special_TS_m1.txt) [ ![Special Module Test Suite from PQ-TestGen for mutant 2](/~kilincceker/MBIT4SW/TSs/Special_TS_m2.txt) ](/~kilincceker/MBIT4SW/TSs/Special_TS_m2.txt) [![Special Module Test Suite from PQ-TestGen for mutant 3](/~kilincceker/MBIT4SW/TSs/Special_TS_m3.txt)](/~kilincceker/MBIT4SW/TSs/Special_TS_m3.txt) *   Additional Module
+*   Special Module Test Suites[![Special Module Test Suite from PQ-TestGen](Special_TS.txt) ](Special_TS.txt) [ ![Special Module Test Suite from PQ-TestGen for mutant 1](Special_TS_m1.txt) ](Special_TS_m1.txt) [ ![Special Module Test Suite from PQ-TestGen for mutant 2](Special_TS_m2.txt) ](Special_TS_m2.txt) [![Special Module Test Suite from PQ-TestGen for mutant 3](Special_TS_m3.txt)](Special_TS_m3.txt) *   Additional Module
 
 You may convert given RE model to obtain PQ files using PQ-Analysis tool for Additional Module or use already obtained PQ file given below for fault-free model and mutant models. Then you can generate test suites from the corresponding PQ files using PQ-TestGen tool given at the tool support. You can also use PQ-RanTest tool for test generation.
 
-[![Additional Module PQ File](/~kilincceker/MBIT4SW/PQ/Additional_FF.txt) ](/~kilincceker/MBIT4SW/PQ/Additional_FF.txt) [ ![Additional Module PQ File for mutant 1](/~kilincceker/MBIT4SW/PQ/Additional_m1.txt) ](/~kilincceker/MBIT4SW/PQ/Additional_m1.txt) [ ![Additional Module PQ File for mutant 2](/~kilincceker/MBIT4SW/PQ/Additional_m2.txt) ](/~kilincceker/MBIT4SW/PQ/Additional_m2.txt) [![Additional Module PQ File for mutant 3](/~kilincceker/MBIT4SW/PQ/Additional_m3.txt)](/~kilincceker/MBIT4SW/PQ/Additional_m3.txt) 
+[![Additional Module PQ File](Additional_FF.txt) ](Additional_FF.txt) [ ![Additional Module PQ File for mutant 1](Additional_m1.txt) ](Additional_m1.txt) [ ![Additional Module PQ File for mutant 2](Additional_m2.txt) ](Additional_m2.txt) [![Additional Module PQ File for mutant 3](Additional_m3.txt)](Additional_m3.txt) 
 
-*   Additional Module Test Suites[![Additional Module Test Suite from PQ-TestGen](/~kilincceker/MBIT4SW/TSs/Additional_TS.txt) ](/~kilincceker/MBIT4SW/TSs/Additional_TS.txt) [ ![Additional Module Test Suite from PQ-TestGen for mutant 1](/~kilincceker/MBIT4SW/TSs/Additional_TS_m1.txt) ](/~kilincceker/MBIT4SW/TSs/Additional_TS_m1.txt) [ ![Additional Module Test Suite from PQ-TestGen for mutant 2](/~kilincceker/MBIT4SW/TSs/Additional_TS_m2.txt) ](/~kilincceker/MBIT4SW/TSs/Additional_TS_m2.txt) [![Additional Module Test Suite from PQ-TestGen for mutant 3](/~kilincceker/MBIT4SW/TSs/Additional_TS_m3.txt)](/~kilincceker/MBIT4SW/TSs/Additional_TS_m3.txt) 
+*   Additional Module Test Suites[![Additional Module Test Suite from PQ-TestGen](Additional_TS.txt) ](Additional_TS.txt) [ ![Additional Module Test Suite from PQ-TestGen for mutant 1](Additional_TS_m1.txt) ](Additional_TS_m1.txt) [ ![Additional Module Test Suite from PQ-TestGen for mutant 2](Additional_TS_m2.txt) ](Additional_TS_m2.txt) [![Additional Module Test Suite from PQ-TestGen for mutant 3](Additional_TS_m3.txt)](Additional_TS_m3.txt) 
 
 ## 2.Testing
 
